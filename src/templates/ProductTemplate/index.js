@@ -50,13 +50,14 @@ export default function ProductTemplate(props) {
     variantId,
   ]);
 
-  const handleVariantChange = e => {
+  const handleVariantChange = (e) => {
     const newVariant = product?.variants.find(v => v.id === e.target.value);
     SetSelectedVariant(newVariant);
     navigate(
-      `${origin}${pathname}?vairant=${encodeURIComponent(
-        newVariant.id
-      )}, replace:true`
+      `${origin}${pathname}?vairant=${encodeURIComponent(newVariant.id)}`,
+      {
+        replace: true,
+      }
     );
   };
 
@@ -64,7 +65,7 @@ export default function ProductTemplate(props) {
     <Layout>
       <Grid>
         <div>
-          <h1> {props.data.shopifyProduct.title}</h1>{' '}
+          <h1> {props.data.shopifyProduct.title}</h1>
           <p> {props.data.shopifyProduct.description}</p>
           {product?.availableForSale && !!selectedVariant && (
             <>
