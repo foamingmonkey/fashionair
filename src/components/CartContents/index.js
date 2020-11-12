@@ -1,41 +1,54 @@
 import React from 'react';
 import CartContext from 'context/CartContext';
 import {CartItem, CartHeader, CartFooter} from './styles';
+import { QuantityAdjuster } from '../QuantityAdjuster';
+import { RemoveLineItem } from '../RemoveLineItem'
 
 
 
-export function CartContexts() {
-    const { checkout } = React.useContext(CartContext);
+export function CartContents() {
+    const { checkout, updateLineItem } = React.useContext(CartContext);
     console.log(checkout.lineItems);
+ 
+  const handleAdjustQuantity = ({ quantity, variantId }) => {
+    updateLineItem({ quantity, variantId })
+ };
+
+
+
 
     return (
       <section>
         <h1> your cart</h1>
         <CartHeader>
-          <div> Product </div>
+          <div>
+            Product
+          </div>
           <div> Unit Price</div>
-          <div> Quantitiy</div>
-    <div> Amount</div>
+          <div> Quantity</div>
+          <div> Amount</div>
         </CartHeader>
+
         {checkout?.lineItems?.map(item => (
           <CartItem key={item.variant.id}>
             <div>
               <div>{item.title}</div>
-              <div> {item.variant.title}</div>
+              <div>{item.variant.title}</div>
+              <div>{item.variant.sku}</div>
+        
+      
             </div>
             <div>${item.variant.price}</div>
-            <div>{item.quantitiy}</div>
+            <div><QuantityAdjuster item={item} onAdjust={handleAdjustQuantity} /></div>
 
-            <div>${(item.quantitiy * item.variant.price).toFixed(2)}</div>
+            <div>${(item.quantity * item.variant.price).toFixed(2)}</div>
+            <div> <RemoveLineItem lineItemId={item.id} /> </div>
           </CartItem>
         ))}
         <CartFooter>
-          <div/>
-          <div> 
-            <strong>
-              Total:
-            </strong> <span> 
-              ${checkout?.totalPrice}</span>
+          <div> <strong> Total:</strong></div>
+          <div>
+            <span> ${checkout?.totalPrice}</span>
           </div>
         </CartFooter>
       </section>

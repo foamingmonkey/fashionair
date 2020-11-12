@@ -1,6 +1,6 @@
 import React from 'react';
-import { Layout, CartContent } from 'components';
+import { Layout, CartContents } from 'components';
 
 export default function CartPage(){
-    return <Layout> <CartContent/>  </Layout>;
+    return <Layout> <CartContents/>  </Layout>;
 }

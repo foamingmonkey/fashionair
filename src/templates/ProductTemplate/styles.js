@@ -29,3 +29,12 @@ export const Price = styled.div`
   font-weight: 400;
   font-size: 30px;
 `;
+export const RetailPrice = styled.div`
+         margin: 40px 0;
+         font-weight: 100;
+         font-size: 18px;
+         color: red;
+         text-decoration: line-through;
+       `;
+
+

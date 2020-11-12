@@ -1,29 +1,19 @@
 /*eslint-disable jsx-a11y/no-onchange */
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Layout, ImageGallery, ProductQuantityAdder } from 'components';
-import { Grid, SelectWrapper, Price } from './styles';
+import { Layout, ImageGallery, ProductQuantityAdder} from 'components';
+import { Grid, SelectWrapper, Price, RetailPrice } from './styles';
 import CartContext from 'context/CartContext';
 import { navigate, useLocation } from '@reach/router';
 import queryString from 'query-string';
 
+
+
 export const query = graphql`
   query ProductQuery($shopifyId: String) {
     shopifyProduct(shopifyId: { eq: $shopifyId }) {
-      shopifyId
-      title
-      description
-      images {
-        id
-        localFile {
-          childImageSharp {
-            fluid(maxWidth: 905) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-      }
-    }
+  ...ShopifyProductFields
+ }
   }
 `;
 
@@ -66,7 +56,7 @@ export default function ProductTemplate(props) {
       <Grid>
         <div>
           <h1> {props.data.shopifyProduct.title}</h1>
-          <p> {props.data.shopifyProduct.description}</p>
+
           {product?.availableForSale && !!selectedVariant && (
             <>
               <SelectWrapper>
@@ -85,7 +75,15 @@ export default function ProductTemplate(props) {
               </SelectWrapper>
               {!!selectedVariant && (
                 <>
+                  <RetailPrice> ${selectedVariant.compareAtPrice}</RetailPrice>
+
                   <Price>${selectedVariant.price}</Price>
+                  <div className="discount">
+                    <span> Save </span>
+                    {(selectedVariant.price / selectedVariant.compareAtPrice) *
+                      100}{' '}
+                    %
+                  </div>
                   <ProductQuantityAdder
                     available={selectedVariant.available}
                     variantId={selectedVariant.id}
@@ -94,6 +92,12 @@ export default function ProductTemplate(props) {
               )}
             </>
           )}
+
+          <div>
+            <h5>General Info </h5>
+            <p> {props.data.shopifyProduct.description}</p>
+            
+          </div>
         </div>
         <div>
           <ImageGallery
