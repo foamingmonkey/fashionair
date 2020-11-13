@@ -11,11 +11,11 @@ const query = graphql`
           }
           title
           description
-          shopifyId
-          image {
-            localFile {
-              childImageSharp{
-                fluid(maxWidth:1200) {
+          shopifyId 
+          image{
+            localFile{
+              childImageSharp {
+                fluid (maxWidth:900) {
                   ...GatsbyImageSharpFluid_withWebp
                 }
               }
@@ -35,7 +35,7 @@ const ProductContext = React.createContext(defaultState);
 export default ProductContext;
 
 export function ProductContextProvider({ children }) {
-  const {allShopifyCollection} = useStaticQuery (query);
+  const { allShopifyCollection } = useStaticQuery (query);
   
   return (
     <ProductContext.Provider
