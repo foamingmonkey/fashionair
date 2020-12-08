@@ -5,14 +5,14 @@ import {ProductsGrid} from '../ProductsGrid';
 export function FeaturedProducts(){
 const {collections} = React.useContext (ProductContext);
 
-const FeaturedCollection = collections.find( 
+const featuredCollection = collections.find( 
     collection => collection.title === 'Kiton'); 
 
 
 return (
     <section>
         <h1> Featured hats</h1>
-        <ProductsGrid products={FeaturedCollection.products}/>
+        <ProductsGrid products={featuredCollection.products}/>
     </section>
 )
 
