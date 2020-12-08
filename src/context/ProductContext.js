@@ -3,7 +3,7 @@ import {graphql, useStaticQuery } from 'gatsby';
 
 const query = graphql`
   {
-    allShopifyCollection {
+    allShopifyCollection(sort: { fields: title, order: ASC }) {
       edges {
         node {
           products {
@@ -11,16 +11,17 @@ const query = graphql`
           }
           title
           description
-          shopifyId 
-          image{
-            localFile{
+          shopifyId
+          image {
+            localFile {
               childImageSharp {
-                fluid (maxWidth:900) {
+                fluid(maxWidth: 1400) {
                   ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }
           }
+          
         }
       }
     }
@@ -35,7 +36,7 @@ const ProductContext = React.createContext(defaultState);
 export default ProductContext;
 
 export function ProductContextProvider({ children }) {
-  const { allShopifyCollection } = useStaticQuery (query);
+  const {allShopifyCollection} = useStaticQuery (query);
   
   return (
     <ProductContext.Provider
