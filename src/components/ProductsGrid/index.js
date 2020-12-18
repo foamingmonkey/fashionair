@@ -1,14 +1,21 @@
 import React from 'react';
-import { ProductGridWrapper } from './styles';
-import {ProductsTile} from '../ProductTile';
+import {ProductsGridWrapper} from './styles';
+import {ProductTile} from '../ProductTile';
+
 
 
 export function ProductsGrid({ products }) {
   return (
-    <ProductGridWrapper>
+    <ProductsGridWrapper>
       {products.map(product => (
-      <ProductsTile key={product.shopifyId} title={product.title}/>
+     <ProductTile 
+     handle={product.handle}
+     minPrice={product.priceRange.minVariantPrice.amount}
+          description={product.description}
+     imageFluid={product.images[0].localFile.childImageSharp.fluid}
+     key={product.shopifyId}
+      title={product.title} />
       ))}
-    </ProductGridWrapper>
+    </ProductsGridWrapper>
   );
 }

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ProductGridWrapper = styled.section`
+export const ProductsGridWrapper = styled.section`
          display: grid;
          grid-gap: 5px;
          grid-template-columns: 1fr;
