@@ -13,9 +13,8 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <HomepageCollectionsGrid
-        collections={
-          collections.filter(collection => collection.title !== 'Featured') ||
+      <SEO description="Fiori di lusso mens wear from Italy"title ="Home page" />
+      <HomepageCollectionsGrid collections={collections.filter(collection => collection.title !== 'Featured') ||
           []
         }
       />

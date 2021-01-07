@@ -1,16 +1,9 @@
 import React from 'react';
-import {
-  Layout,
-  Filters,
-  ProductsGrid,
-  SEO
-} from 'components';
+import {Layout,Filters,ProductsGrid,SEO} from 'components';
 import ProductContext from 'context/ProductContext';
 import styled from 'styled-components';
 import queryString from 'query-string';
-import {
-  useLocation
-} from '@reach/router';
+import {useLocation} from '@reach/router';
 
 const Content = styled.div `
   display: grid;
@@ -73,6 +66,8 @@ export default function AllProducts() {
     .filter(filterBySearchTerm);
   return (
     <Layout>
+      <SEO description ="Fiori di lusso mens wear from Italy all products"
+      title = "All Products" />
       {!!searchTerm && !!filteredProducts.length && (
         <h3> Search term <strong>'{searchTerm}'</strong></h3>
       )}
