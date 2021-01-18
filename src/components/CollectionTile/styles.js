@@ -24,7 +24,6 @@ export const CollectionTileContent = styled.div`
   text-decoration: none;
   background: rgba(0, 0, 0, 0.5);
   text-align: center;
-  
   > div {
     padding: 20px;
     ${StyledLink} {
@@ -55,6 +54,7 @@ export const Title = styled.div`
   font-weight: bold;
   border-radius: 10px;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.75);
+  
 `;
 
 export const Description = styled.div`

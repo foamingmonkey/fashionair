@@ -2,7 +2,7 @@ import React from 'react';
 import {HeaderWrapper} from './styles';
 import {Cart} from  '../Cart';
 import {Logo} from '../Logo';
-import { Search } from '../Search';
+import {Search} from '../Search';
 import {Link} from 'gatsby';
 
  
