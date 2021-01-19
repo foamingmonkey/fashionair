@@ -27,7 +27,7 @@ export const CollectionTileContent = styled.div`
   > div {
     padding: 20px;
     ${StyledLink} {
-      padding: 10px;
+      padding: 11px;
       background: white;
       border: 1px solid black;
       font-weight: bold;
