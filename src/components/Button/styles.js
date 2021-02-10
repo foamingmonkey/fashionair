@@ -15,7 +15,7 @@ height:44px;
 line-height:44px;
 box-shadow:none;
 font-size:16px;
-font-family: 'Open Sans',Sans-serif;
+font-family: 'Montserrat',Sans-serif;
 cursor:pointer;
 font-weight:bold;
 text-transform:uppercase;

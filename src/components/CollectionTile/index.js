@@ -10,9 +10,10 @@ export function CollectionTile({
 
         
         <CollectionTileWrapper> 
-      
-            <BackgroundImage fluid={backgroundImage} />
+     
+            <BackgroundImage fluid={backgroundImage} to={destination} />
             <CollectionTileContent> 
+            
             <div> 
                 <Title sale={sale}>  {title} </Title>
            <Description sale={sale}> {description} </Description>
@@ -21,5 +22,6 @@ export function CollectionTile({
             </CollectionTileContent>
 
         </CollectionTileWrapper>
+      
     );
 }

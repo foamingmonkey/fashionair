@@ -27,6 +27,7 @@ color:black;
 
  export const Description = styled.div`
  color:#999;
+ font-family:Neuton;
  text-align:left;
  padding:0 20px 10px 20px; 
  `;

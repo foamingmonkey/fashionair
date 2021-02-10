@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { StyledLink } from '../StyledLink';
 
 export const CollectionTileWrapper = styled.div`
-  height: 300px;
+  height: 600px;
   max-height: 100vh;
   display: flex;
   position: relative;
@@ -22,7 +22,7 @@ export const CollectionTileContent = styled.div`
   height: 100%;
   color: white;
   text-decoration: none;
-  background: rgba(0, 0, 0, 0.5);
+ 
   text-align: center;
   > div {
     padding: 20px;
@@ -53,7 +53,7 @@ export const Title = styled.div`
   font-size: 40px;
   font-weight: bold;
   border-radius: 10px;
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.75);
+color: rgb(0,0,0,0)
   
 `;
 

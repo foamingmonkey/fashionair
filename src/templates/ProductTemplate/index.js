@@ -2,7 +2,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { Layout, ImageGallery, ProductQuantityAdder, Button, SEO} from 'components';
-import { Grid, SelectWrapper, Price, RetailPrice } from './styles';
+import { Grid, SelectWrapper, Price, RetailPrice, FullPriceColumn } from './styles';
 import CartContext from 'context/CartContext';
 import { navigate, useLocation } from '@reach/router';
 import queryString from 'query-string';
@@ -80,15 +80,18 @@ export default function ProductTemplate(props) {
               </SelectWrapper>
               {!!selectedVariant && (
                 <>
+                <FullPriceColumn> 
                   <RetailPrice> ${selectedVariant.compareAtPrice}</RetailPrice>
 
-                  <Price>${selectedVariant.price}</Price>
+                  <Price><span> Price: &nbsp;</span>${selectedVariant.price}</Price>
                   <div className="discount">
                     <span> Save </span>
-                    {(selectedVariant.price / selectedVariant.compareAtPrice) *
-                      100}{' '}
+                    {(selectedVariant.price / selectedVariant.compareAtPrice)  *
+                      100} 
+                      {' '}
                     %
                   </div>
+                  </FullPriceColumn>
                   <ProductQuantityAdder
                     available={selectedVariant.available}
                     variantId={selectedVariant.id}
