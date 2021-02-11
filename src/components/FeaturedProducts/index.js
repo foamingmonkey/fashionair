@@ -14,6 +14,6 @@ return (
         <h1> New Items</h1>
         <ProductsGrid products={featuredCollection.products}/>
     </section>
-)
+);
 
 }
